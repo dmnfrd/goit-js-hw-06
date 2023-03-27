@@ -1,21 +1,43 @@
+/*Напиши скрипт управління формою логіна.
+
+<form class="login-form">
+  <label>
+    Email
+    <input type="email" name="email" />
+  </label>
+  <label>
+    Password
+    <input type="password" name="password" />
+  </label>
+  <button type="submit">Login</button>
+</form>
+
+
+Обробка відправлення форми form.login-form повинна відбуватися відповідно до події submit.
+Під час відправлення форми сторінка не повинна перезавантажуватися.
+Якщо у формі є незаповнені поля, виводь alert з попередженням про те, що всі поля повинні бути заповнені.
+Якщо користувач заповнив усі поля і відправив форму, збери значення полів в об'єкт, де ім'я поля буде ім'ям властивості, а значення поля - значенням властивості. Для доступу до елементів форми використовуй властивість elements.
+Виведи об'єкт із введеними даними в консоль і очисти значення полів форми методом reset.
+*/
+
 const loginForm = document.querySelector('.login-form');
 
-loginForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    
-  const emailInput = loginForm.elements.email;
-  const passwordInput = loginForm.elements.password;
- 
-  if (emailInput.value === '' || passwordInput.value === '') {
-    alert('Please fill in all fields');
-    return;
+loginForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const email = loginForm.elements.email;
+  const password = loginForm.elements.password;
+
+  if (email.value == "" || password.value == "") {
+    return alert("Please fill in all fields");
   }
 
-  const formData = {
-    email: emailInput.value,
-    password: passwordInput.value
+  const result = {
+    email: email.value,
+    password: password.value,
   };
-  console.log(formData);
-  loginForm.reset(); 
+
+  console.log(result);
+  event.currentTarget.reset();
 });
 

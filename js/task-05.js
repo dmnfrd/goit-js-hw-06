@@ -1,10 +1,6 @@
 const nameInput = document.querySelector('#name-input');
 const nameOutput = document.querySelector('#name-output');
 
-nameInput.addEventListener('input', function() {
-  if (nameInput.value === '') {
-    nameOutput.innerText = 'Anonymous';
-  } else {
-    nameOutput.innerText = nameInput.value;
-  }
+nameInput.addEventListener('input', (event) => {
+  nameOutput.textContent = event.currentTarget.value ? event.currentTarget.value : 'Anonymous';
 });

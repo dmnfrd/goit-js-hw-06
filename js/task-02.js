@@ -13,11 +13,14 @@ const ingredients = [
 Додасть елементу клас item.
 Після чого, вставить усі <li> за одну операцію у список ul#ingredients.*/
 
-const ul = document.getElementById('ingredients'); 
 
-for (let i = 0; i < ingredients.length; i+=1) {
-  const li = document.createElement('li');
-  li.innerText = ingredients[i];
-  li.classList.add('item');
-  ul.appendChild(li); 
+const ingredientsList = document.querySelector('#ingredients');
+
+for (let ingredient of ingredients) {
+  let newElLi = document.createElement('li');
+  newElLi.textContent = ingredient;
+  newElLi.className = 'item';
+
+
+ingredientsList.appendChild(newElLi);
 }

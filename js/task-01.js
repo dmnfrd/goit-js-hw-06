@@ -1,16 +1,26 @@
-/*Порахує і виведе в консоль кількість категорій в ul#categories, тобто елементів li.item.*/
+/*Порахує і виведе в консоль кількість категорій в ul#categories, тобто елементів li.item.
+Для кожного элемента li.item у списку ul#categories, знайде і виведе в консоль текст заголовку елемента (тегу <h2>) і кількість елементів в категорії (усіх <li>, вкладених в нього).
+Для виконання цього завдання потрібно використати метод forEach() і властивості навігації по DOM.
 
-const categoriesNumber = document.querySelector('#categories');
-const categories = categoriesNumber.querySelectorAll('li.item');
-console.log(`Number of categories: ${categories.length}`);
+В результаті, в консолі будуть виведені наступні повідомлення.
 
-/*Для кожного элемента li.item у списку ul#categories, знайде і виведе в консоль текст заголовку елемента (тегу <h2>) і кількість елементів в категорії (усіх <li>, вкладених в нього).*/
+Number of categories: 3
 
-categories.forEach((category) => {
-const categoryName = category.querySelector('h2');
-console.log(categoryName.innerText); 
-const categoryElements = category.querySelectorAll('li');
-console.log(`Elements: ${categoryElements.length}`);
+Category: Animals
+Elements: 4
+
+Category: Products
+Elements: 3
+
+Category: Technologies
+Elements: 5*/
+
+const categoryQuantity = document.querySelectorAll("li.item");
+console.log(`Number of categories: ${categoryQuantity.length}`);
+
+categoryQuantity.forEach((item) => {
+  console.log(`Category: ${item.firstElementChild.textContent}`);
+  console.log(`Elements: ${item.lastElementChild.children.length}`);
 });
 
 

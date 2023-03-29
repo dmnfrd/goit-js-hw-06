@@ -29,6 +29,10 @@ input.addEventListener('blur', () => {
   const length = input.getAttribute('data-length');
   const valueLength = input.value.length;
 
-  input.classList.add(valueLength === length ? 'valid' : 'invalid');
-  input.classList.remove(valueLength === length ? 'invalid' : 'valid');
+  const validLength = valueLength === length;
+  const validInput = 'valid';
+  const invalidInput = 'invalid';
+
+  input.classList.add(validLength ? validInput : invalidInput);
+  input.classList.remove(validLength ? invalidInput : validInput);
 });

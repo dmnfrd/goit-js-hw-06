@@ -24,20 +24,19 @@ const loginForm = document.querySelector('.login-form');
 
 loginForm.addEventListener("submit", (event) => {
   event.preventDefault();
-
-  const email = loginForm.elements.email;
-  const password = loginForm.elements.password;
-
-  if (email.value == "" || password.value == "") {
+  
+ const loginForm = event.currentTarget; 
+  
+  if (loginForm.elements.email.value === "" || loginForm.elements.password.value === "") {
     return alert("Please fill in all fields");
   }
 
   const result = {
-    email: email.value,
-    password: password.value,
+    email: loginForm.elements.email.value,
+    password: loginForm.elements.password.value,
   };
 
   console.log(result);
-  event.currentTarget.reset();
+  loginForm.reset(); 
 });
 
